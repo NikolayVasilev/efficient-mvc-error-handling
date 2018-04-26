@@ -1,0 +1,21 @@
+﻿@model Exception
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <title>500 - Internal Server Error</title>
+</head>
+<body>
+    <div>
+        <h2>Pesho - Internal Server Error</h2>
+        <hr />
+        @Html.DisplayForModel(Model)
+        <hr />
+        @Html.ActionLink("Send Error Email", "SendErrorEmail")
+    </div>
+</body>
+</html>
+
+
+

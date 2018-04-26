@@ -1,0 +1,18 @@
+﻿@model Exception
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>404 Not Found</title>
+</head>
+<body>
+<div>
+    <h2>404 - Not Found</h2>
+    <hr />
+    @Html.DisplayForModel(Model)
+    <hr />
+    @Html.ActionLink("Send Error Email", "SendErrorEmail")
+</div>
+</body>
+</html>
