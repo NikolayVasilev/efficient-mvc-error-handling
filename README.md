@@ -5,8 +5,8 @@ To be honest, there are too many different approaches to error handling in ASP.N
 
 ## Advantages of implementing an override of the Application_Error method
 
-    *it's what ASP.NET calls right before it displays its dreaded error screen and can be used as a safety net to gracefully handle all unexpected errors
-    *it can be used in combination with the above-mentioned different approaches
-    *very SEO friendly - returns the appropriate HTTP status code (different approaches might even return 200, which is wrong on many levels)
-    *doesn't change or "aspxerrorpath" the URL
-    *doesn't require the use of HandleError attributes or Web.config setup and is very easy to setup on a project level
+  *it's what ASP.NET calls right before it displays its dreaded error screen and can be used as a safety net to gracefully handle all unexpected errors
+  *it can be used in combination with the above-mentioned different approaches
+  *very SEO friendly - returns the appropriate HTTP status code (different approaches might even return 200, which is wrong on many levels)
+  *doesn't change or "aspxerrorpath" the URL
+  *doesn't require the use of HandleError attributes or Web.config setup and is very easy to setup on a project level
