@@ -8,9 +8,9 @@
 </head>
 <body>
     <div>
-        <h2>Pesho - Internal Server Error</h2>
+        <h2>500 - Internal Server Error</h2>
         <hr />
-        @Html.DisplayForModel(Model)
+        @Html.DisplayForModel(Model.Message)
         <hr />
         @Html.ActionLink("Send Error Email", "SendErrorEmail")
     </div>

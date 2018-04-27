@@ -19,7 +19,8 @@ namespace Custom_Error_Pages
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
-
+        
+        //example implementation of the Application_Error method
         protected void Application_Error(object sender, EventArgs e)
         {
             System.Diagnostics.Trace.WriteLine("Enter - Application_Error");
@@ -27,24 +28,23 @@ namespace Custom_Error_Pages
             var httpContext = ((MvcApplication)sender).Context;
 
             var currentRouteData = RouteTable.Routes.GetRouteData(new HttpContextWrapper(httpContext));
-            var currentController = " ";
-            var currentAction = " ";
+            var currentController = string.Empty;
+            var currentAction = string.Empty;
 
             if (currentRouteData != null)
             {
-                if (currentRouteData.Values["controller"] != null &&
-                    !String.IsNullOrEmpty(currentRouteData.Values["controller"].ToString()))
+                if (!string.IsNullOrEmpty(currentRouteData.Values["controller"]?.ToString()))
                 {
                     currentController = currentRouteData.Values["controller"].ToString();
                 }
 
-                if (currentRouteData.Values["action"] != null &&
-                    !String.IsNullOrEmpty(currentRouteData.Values["action"].ToString()))
+                if (!string.IsNullOrEmpty(currentRouteData.Values["action"]?.ToString()))
                 {
                     currentAction = currentRouteData.Values["action"].ToString();
                 }
             }
 
+            //get information about the last exception
             var ex = this.Server.GetLastError();
 
             if (ex != null)
@@ -58,12 +58,14 @@ namespace Custom_Error_Pages
                 }
             }
 
+            //invoke an Error controller with the default action
             var controller = new ErrorController();
             this.Session["lastError"] = ex;
             var routeData = new RouteData();
             var action = "CustomError";
             var statusCode = 500;
 
+            //determine Error controller action based on the response code
             if (ex is HttpException)
             {
                 var httpEx = ex as HttpException;

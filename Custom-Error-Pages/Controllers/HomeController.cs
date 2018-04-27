@@ -12,7 +12,7 @@ namespace Custom_Error_Pages.Controllers
     {
         public ActionResult Index()
         {
-            throw new ArgumentOutOfRangeException();
+            throw new AuthenticationException();
             return View();
         }
     }
