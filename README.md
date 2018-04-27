@@ -13,7 +13,7 @@ To be honest, there are too many different approaches to error handling in ASP.N
   
 ## Before we begin
 
-Delete your default **Error.cshtml** view from the **Shared** folder. You will not need it with this error handling implementation and it might mess with you if you haven't de-registered your **HandleError** attribute as a global action filter. As a matter of fact, just go ahead an delete it from the **RegisterGlobalFilters** in the **Global.asax** file
+Delete your default **Error.cshtml** view from the **Shared** folder. You will not need it with this error handling implementation and it might mess with you if you haven't de-registered your **HandleError** attribute as a global action filter. As a matter of fact, just go ahead an de-register it from the **RegisterGlobalFilters** in the **Global.asax** file
 
 ```csharp
 public static void RegisterGlobalFilters(GlobalFilterCollection filters)
